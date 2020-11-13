@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,8 +13,8 @@ public class AnalyticsCounter {
 
 	public static void main(String args[]) throws Exception {
 
-		FileReader file = null;
-		BufferedReader reader = null;
+		FileReader inputFile = null;
+		BufferedReader BufferReader = null;
 		String line;
 
 		/**
@@ -22,10 +23,10 @@ public class AnalyticsCounter {
 		 */
 
 		try {
-			file = new FileReader("symptoms.txt");
-			reader = new BufferedReader(file);
+			inputFile = new FileReader("symptoms.txt");
+			BufferReader = new BufferedReader(inputFile);
 
-			while ((line = reader.readLine()) != null) {
+			while ((line = BufferReader.readLine()) != null) {
 
 				if (line.equals("headache")) {
 					headacheCount++;
@@ -39,7 +40,7 @@ public class AnalyticsCounter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			reader.close();
+			BufferReader.close();
 		}
 
 		System.out.println("read of file \"symptoms.txt\" finished !");
@@ -49,19 +50,22 @@ public class AnalyticsCounter {
 		 * the number of occurrence counted in file symptoms.txt
 		 */
 
-		FileWriter writer = null;
+		FileWriter outFile = null;
+		BufferedWriter bufferWriter = null;
 
 		try {
-			writer = new FileWriter("result.out");
+			outFile = new FileWriter("result.out");
+			bufferWriter = new BufferedWriter(outFile);
 
-			writer.write("headache: " + headacheCount + "\n");
-			writer.write("rash: " + rashCount + "\n");
-			writer.write("dialated pupils: " + pupilCount + "\n");
+			bufferWriter.write("headache: " + headacheCount + "\n");
+			bufferWriter.write("rash: " + rashCount + "\n");
+			bufferWriter.write("dialated pupils: " + pupilCount + "\n");
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			writer.close();
+			bufferWriter.close();
+			outFile.close();
 		}
 
 		System.out.println("creation of new file \"result.out\" with counts of symptoms is done !");
