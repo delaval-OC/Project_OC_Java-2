@@ -3,6 +3,7 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0; // initialize to 0
@@ -10,31 +11,58 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0; // initialize to 0
 
 	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		while (line != null) {
+		FileReader file = null;
+		BufferedReader reader = null;
+		String line;
 
-			if (line.equals("headache")) {
-				headacheCount++;
-			} else if (line.equals("rash")) {
-				rashCount++;
-			} else if (line.contains("pupils")) {
-				pupilCount++;
+		/**
+		 * Read of each line of file symptoms.txt and count of number of occurrence for
+		 * 3 symptoms
+		 */
+
+		try {
+			file = new FileReader("symptoms.txt");
+			reader = new BufferedReader(file);
+
+			while ((line = reader.readLine()) != null) {
+
+				if (line.equals("headache")) {
+					headacheCount++;
+				} else if (line.equals("rash")) {
+					rashCount++;
+				} else if (line.contains("pupils")) {
+					pupilCount++;
+				}
+
 			}
-
-			line = reader.readLine(); // get another symptom
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			reader.close();
 		}
 
 		System.out.println("read of file \"symptoms.txt\" finished !");
 
-		// next generate output
-		FileWriter writer = new FileWriter("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		/**
+		 * generate a file result.out with for each line, the description of symptom and
+		 * the number of occurrence counted in file symptoms.txt
+		 */
+
+		FileWriter writer = null;
+
+		try {
+			writer = new FileWriter("result.out");
+
+			writer.write("headache: " + headacheCount + "\n");
+			writer.write("rash: " + rashCount + "\n");
+			writer.write("dialated pupils: " + pupilCount + "\n");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			writer.close();
+		}
 
 		System.out.println("creation of new file \"result.out\" with counts of symptoms is done !");
 	}
