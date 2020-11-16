@@ -1,73 +1,67 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0; // initialize to 0
-	private static int rashCount = 0; // initialize to 0
-	private static int pupilCount = 0; // initialize to 0
 
-	public static void main(String args[]) throws Exception {
+	private ISymptomReader symptomReader;
+	private ISymptomWriter symptomWriter;
 
-		FileReader inputFile = null;
-		BufferedReader BufferReader = null;
-		String line;
+	private List<String> listSymptoms;
+	private LinkedHashMap<String, Integer> hashMapCounterSymptom;
 
-		/**
-		 * Read of each line of file symptoms.txt and count of number of occurrence for
-		 * 3 symptoms
-		 */
+	/**
+	 * constructs a instance with two attributes witch implements respectively
+	 * interface ISymptomReader and ISymptomWriter to be able to read in and write
+	 * into any file
+	 * 
+	 * @param symptomsReader
+	 * @param symptomWriter
+	 */
+	public AnalyticsCounter(ISymptomReader symptomsReader, ISymptomWriter symptomWriter) {
+		this.symptomReader = symptomsReader;
+		this.symptomWriter = symptomWriter;
+	}
 
-		try {
-			inputFile = new FileReader("symptoms.txt");
-			BufferReader = new BufferedReader(inputFile);
+	/**
+	 * generate a List of all symptoms presents in a file using symptomReader
+	 */
+	public void setListSymptoms() {
+		this.listSymptoms = symptomReader.GetSymptoms();
+	}
 
-			while ((line = BufferReader.readLine()) != null) {
+	public void setFileResult() {
+		this.symptomWriter.setResultIntoFile(hashMapCounterSymptom);
+	}
 
-				if (line.equals("headache")) {
-					headacheCount++;
-				} else if (line.equals("rash")) {
-					rashCount++;
-				} else if (line.contains("pupils")) {
-					pupilCount++;
-				}
+	public void setHashMapCounterSymptoms() {
+		hashMapCounterSymptom = new LinkedHashMap<String, Integer>();
+
+		if (!listSymptoms.isEmpty()) {
+
+			Collections.sort(listSymptoms);
+
+			System.out.println("**********************************************************");
+			System.out.println("list of symptoms sorted !");
+			System.out.println(listSymptoms);
+
+			String symptom;
+
+			for (int i = 0; i < listSymptoms.size(); i++) {
+
+				symptom = listSymptoms.get(i);
+
+				hashMapCounterSymptom.put(symptom, listSymptoms.lastIndexOf(symptom) - i + 1);
+
+				i = listSymptoms.lastIndexOf(symptom);
 
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			BufferReader.close();
+
 		}
-
-		System.out.println("read of file \"symptoms.txt\" finished !");
-
-		/**
-		 * generate a file result.out with for each line, the description of symptom and
-		 * the number of occurrence counted in file symptoms.txt
-		 */
-
-		FileWriter outFile = null;
-		BufferedWriter bufferWriter = null;
-
-		try {
-			outFile = new FileWriter("result.out");
-			bufferWriter = new BufferedWriter(outFile);
-
-			bufferWriter.write("headache: " + headacheCount + "\n");
-			bufferWriter.write("rash: " + rashCount + "\n");
-			bufferWriter.write("dialated pupils: " + pupilCount + "\n");
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			bufferWriter.close();
-			outFile.close();
-		}
-
-		System.out.println("creation of new file \"result.out\" with counts of symptoms is done !");
+		System.out.println("**********************************************************");
+		System.out.println("HashMap sorted and terminated!");
+		System.out.println(hashMapCounterSymptom);
 	}
 }
