@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package com.hemebiotech.writer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -7,17 +7,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 
+ * <p>
+ * This class is use to write date into a File.
+ * </p>
+ * It redefines the methods of ISymptomWriter. This class will be also use to
+ * write data into a specific file given in the constructor
  * 
  * @author delaval
- *
+ * @version V0.2
  */
 public class WriteSymptomCounterDataIntoFile implements ISymptomWriter {
 
 	private String filePath;
 
 	/**
-	 * read the path to generate a new file of result
+	 * constructs a instance with path of the file to write into
 	 * 
 	 * @param filePath a full path of the file to generate
 	 */
@@ -25,8 +29,14 @@ public class WriteSymptomCounterDataIntoFile implements ISymptomWriter {
 		this.filePath = filePath;
 	}
 
+	/**
+	 * write the data in a LinkedHasMap into a file with path given in constructor
+	 * 
+	 * @param linkedHashMap a list sorted without duplicates of data to write into
+	 *                      the file
+	 */
 	@Override
-	public void setResultIntoFile(LinkedHashMap<String, Integer> hashMap) {
+	public void setResultIntoSource(LinkedHashMap<String, Integer> linkedHashMap) {
 
 		if (filePath != null) {
 
@@ -37,7 +47,7 @@ public class WriteSymptomCounterDataIntoFile implements ISymptomWriter {
 				outFile = new FileWriter(filePath);
 				bufferWriter = new BufferedWriter(outFile);
 
-				for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+				for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
 					String symptom = entry.getKey();
 					int count = entry.getValue();
 					bufferWriter.write(symptom + ":\t" + count + "\n");
