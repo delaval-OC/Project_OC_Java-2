@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import com.hemebiotech.reader.ReadSymptomDataFromFile;
+import com.hemebiotech.treatment.SortWithoutDuplicatesCountSymptoms;
 import com.hemebiotech.writer.WriteSymptomDataIntoFile;
 
 /**
@@ -14,10 +15,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		AnalyticsCounter counterSymptoms = new AnalyticsCounter(new ReadSymptomDataFromFile("symptoms.txt"),
-				new WriteSymptomDataIntoFile("result3.out"));
+				new WriteSymptomDataIntoFile("result3.out"), new SortWithoutDuplicatesCountSymptoms());
 
 		counterSymptoms.getListSymptoms();
-		counterSymptoms.setHashMapCounterSymptoms();
+		counterSymptoms.setTreatmentSymptoms();
 		counterSymptoms.setFileResult();
 	}
 

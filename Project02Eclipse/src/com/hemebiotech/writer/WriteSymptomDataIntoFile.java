@@ -50,7 +50,7 @@ public class WriteSymptomDataIntoFile implements ISymptomWriter {
 				for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
 					String symptom = entry.getKey();
 					int count = entry.getValue();
-					bufferWriter.write(symptom + ":\t" + count + "\n");
+					bufferWriter.write(symptom + ": " + count + "\n");
 				}
 
 			} catch (IOException e) {
