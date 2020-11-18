@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.hemebiotech.analytics"},{"l":"com.hemebiotech.reader"},{"l":"com.hemebiotech.writer"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.hemebiotech.analytics"},{"l":"com.hemebiotech.reader"},{"l":"com.hemebiotech.treatment"},{"l":"com.hemebiotech.writer"}]

@@ -32,8 +32,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 
 	/**
-	 * recovery data from a specific file with path given by constructor
-	 * {@link ReadSymptomDataFromFile(String)}
+	 * collect data from a specific file with path given by constructor
+	 * {@link ReadSymptomDataFromFile(String)} and put the result in a list of
+	 * String
+	 *
+	 * @return the list with all data read per line
 	 */
 	@Override
 	public List<String> getSymptoms() {

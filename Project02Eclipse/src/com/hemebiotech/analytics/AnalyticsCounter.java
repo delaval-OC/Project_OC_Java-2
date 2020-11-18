@@ -1,10 +1,10 @@
 package com.hemebiotech.analytics;
 
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import com.hemebiotech.reader.ISymptomReader;
+import com.hemebiotech.treatment.ISymptomTreatment;
 import com.hemebiotech.writer.ISymptomWriter;
 
 /**
@@ -47,6 +47,8 @@ public class AnalyticsCounter {
 	// file (DI with the constructor)
 	private ISymptomWriter symptomWriter;
 
+	private ISymptomTreatment symptomTreatment;
+
 	// the list of all values from the file read with symptomReader
 	private List<String> listSymptoms;
 
@@ -58,17 +60,23 @@ public class AnalyticsCounter {
 	 * constructor with attributes witch implements respectively ISymptomReader and
 	 * ISymptomWriter to enable to read in and write into any file
 	 * 
-	 * @param symptomsReader this instance is able to read data from any type of
-	 *                       file (implements interface
-	 *                       {@link com.hemebiotech.reader.ISymptomReader})
+	 * @param symptomsReader   this instance is able to read data from any type of
+	 *                         file implements interface
+	 *                         {@link com.hemebiotech.reader.ISymptomReader}
 	 * 
-	 * @param symptomWriter  this instance is able to write data into a file
-	 *                       (implements interface
-	 *                       {@link com.hemebiotech.writer.ISymptomWriter})
+	 * @param symptomWriter    this instance is able to write data into a file
+	 *                         implements interface
+	 *                         {@link com.hemebiotech.writer.ISymptomWriter}
+	 * 
+	 * @param symptomTreatment this instance is able to treat data ( ie sort,
+	 *                         count...) implements interface
+	 *                         {@link com.hemebiotech.treatment.ISymptomTreatment}
 	 */
-	public AnalyticsCounter(ISymptomReader symptomsReader, ISymptomWriter symptomWriter) {
+	public AnalyticsCounter(ISymptomReader symptomsReader, ISymptomWriter symptomWriter,
+			ISymptomTreatment symptomTreatment) {
 		this.symptomReader = symptomsReader;
 		this.symptomWriter = symptomWriter;
+		this.symptomTreatment = symptomTreatment;
 	}
 
 	/**
@@ -92,33 +100,11 @@ public class AnalyticsCounter {
 	 * and as Value the number of its occurrence) From the private list listSymptoms
 	 * 
 	 */
-	public void setHashMapCounterSymptoms() {
+	public void setTreatmentSymptoms() {
 
-		hashMapCounterSymptom = new LinkedHashMap<String, Integer>();
+		this.hashMapCounterSymptom = new LinkedHashMap<String, Integer>();
 
-		if (!listSymptoms.isEmpty()) {
+		this.hashMapCounterSymptom = this.symptomTreatment.TreatmentSymptoms(listSymptoms);
 
-			Collections.sort(listSymptoms);
-
-			System.out.println("**********************************************************");
-			System.out.println("list of symptoms sorted !");
-			System.out.println(listSymptoms);
-
-			String symptom;
-
-			for (int i = 0; i < listSymptoms.size(); i++) {
-
-				symptom = listSymptoms.get(i);
-
-				hashMapCounterSymptom.put(symptom, listSymptoms.lastIndexOf(symptom) - i + 1);
-
-				i = listSymptoms.lastIndexOf(symptom);
-
-			}
-
-		}
-		System.out.println("**********************************************************");
-		System.out.println("HashMap sorted and terminated!");
-		System.out.println(hashMapCounterSymptom);
 	}
 }
