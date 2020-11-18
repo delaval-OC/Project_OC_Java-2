@@ -36,7 +36,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * {@link ReadSymptomDataFromFile(String)} and put the result in a list of
 	 * String
 	 *
-	 * @return {@link List<String>} the list with all data read per line
+	 * @return the list with all data read per line
 	 */
 	@Override
 	public List<String> getSymptoms() {

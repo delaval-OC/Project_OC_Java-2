@@ -30,10 +30,9 @@ public class SortWithoutDuplicatesCountSymptoms implements ISymptomTreatment {
 	 * 
 	 * The list is not modified. If the list is empty, return a empty linkedHashMAp
 	 * 
-	 * @param list a list of String containing data to use
-	 * @return {@link LinkedHashMap} LinkedHAshMap with as Key a String for each
-	 *         value in the list and as Value a Integer the number of occurrences of
-	 *         this string in list
+	 * @param listSymptoms a list of String containing data to use
+	 * @return a LinkedHAshMap with as Key a String for each value in the list and
+	 *         as Value a Integer the number of occurrences of this string in list
 	 */
 	@Override
 	public LinkedHashMap<String, Integer> TreatmentSymptoms(List<String> listSymptoms) {
