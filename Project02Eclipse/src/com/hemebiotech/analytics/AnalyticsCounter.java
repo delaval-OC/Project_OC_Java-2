@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.hemebiotech.reader.ISymptomReader;
 import com.hemebiotech.treatment.ISymptomTreatment;
-import com.hemebiotech.treatment.SortWithoutDuplicatesCountSymptoms;
 import com.hemebiotech.writer.ISymptomWriter;
 
 /**
@@ -62,16 +61,19 @@ public class AnalyticsCounter {
 	 * ISymptomWriter to enable to read in and write into any file
 	 * 
 	 * @param symptomsReader   this instance is able to read data from any type of
-	 *                         file (implements interface
-	 *                         {@link com.hemebiotech.reader.ISymptomReader})
+	 *                         file implements interface
+	 *                         {@link com.hemebiotech.reader.ISymptomReader}
 	 * 
 	 * @param symptomWriter    this instance is able to write data into a file
-	 *                         (implements interface
-	 *                         {@link com.hemebiotech.writer.ISymptomWriter})
-	 * @param symptomTreatment
+	 *                         implements interface
+	 *                         {@link com.hemebiotech.writer.ISymptomWriter}
+	 * 
+	 * @param symptomTreatment this instance is able to treat data ( ie sort,
+	 *                         count...) implements interface
+	 *                         {@link com.hemebiotech.treatment.ISymptomTreatment}
 	 */
 	public AnalyticsCounter(ISymptomReader symptomsReader, ISymptomWriter symptomWriter,
-			SortWithoutDuplicatesCountSymptoms symptomTreatment) {
+			ISymptomTreatment symptomTreatment) {
 		this.symptomReader = symptomsReader;
 		this.symptomWriter = symptomWriter;
 		this.symptomTreatment = symptomTreatment;
