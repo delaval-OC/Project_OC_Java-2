@@ -13,7 +13,9 @@ import java.util.List;
  * This class allow to redefine methods of IsymptomReader and to specifies them
  * to read data symptoms from only a file This class will be also use to read
  * data from a specific file given in the constructor
- *
+ * 
+ * @author delaval
+ * @version v0.2
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
@@ -52,6 +54,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("File " + filepath + " correctly read !");
+		System.out.println("***************************************************");
+		System.out.println("list of symptoms read :");
 		System.out.println(result);
 		return result;
 	}

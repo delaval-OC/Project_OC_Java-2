@@ -25,7 +25,7 @@ import com.hemebiotech.writer.ISymptomWriter;
  * {@link com.hemebiotech.reader.ReadSymptomDataFromFile} of type
  * {@link com.hemebiotech.reader.ISymptomReader}</li>
  * <li><b>symptomWriter</b>: a instance of class (DI)
- * {@link com.hemebiotech.writer.WriteSymptomCounterDataIntoFile} of type
+ * {@link com.hemebiotech.writer.WriteSymptomDataIntoFile} of type
  * {@link com.hemebiotech.writer.ISymptomWriter}</li>
  * <li><b>listSymptoms</b>: a list to get the data (symptoms) of a file
  * into</li>

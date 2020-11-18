@@ -38,8 +38,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.hemebiotech.writer.WriteSymptomCounterDataIntoFile" project="Project02Eclipse" 
-    file="/Project02Eclipse/src/com/hemebiotech/writer/WriteSymptomCounterDataIntoFile.java" binary="false" 
+  <class id="5" language="java" name="com.hemebiotech.writer.WriteSymptomDataIntoFile" project="Project02Eclipse" 
+    file="/Project02Eclipse/src/com/hemebiotech/writer/WriteSymptomDataIntoFile.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="142" width="272" x="343" y="473"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -57,55 +57,63 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="7">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <realization id="8">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <dependency id="9">    
-    <bendpoint x="231" y="154"/>    
-    <bendpoint x="232" y="542"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="10">    
-    <bendpoint x="680" y="202"/>    
-    <bendpoint x="682" y="288"/>    
-    <bendpoint x="845" y="290"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="11" name="symptomReader"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
-    <bendpoint x="642" y="201"/>    
-    <bendpoint x="643" y="255"/>    
-    <bendpoint x="481" y="256"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="14" name="symptomWriter"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="16">    
-    <bendpoint x="372" y="111"/>    
-    <bendpoint x="506" y="110"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="17">    
+  <dependency id="7">    
     <bendpoint x="182" y="159"/>    
     <bendpoint x="180" y="661"/>    
     <bendpoint x="846" y="658"/>    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
+  <association id="8">    
+    <bendpoint x="680" y="202"/>    
+    <bendpoint x="682" y="288"/>    
+    <bendpoint x="845" y="290"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="9" name="symptomReader">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="10" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="11">    
+    <bendpoint x="642" y="201"/>    
+    <bendpoint x="643" y="255"/>    
+    <bendpoint x="481" y="256"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="12" name="symptomWriter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="13" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="14">    
+    <bendpoint x="372" y="111"/>    
+    <bendpoint x="506" y="110"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="15">    
+    <bendpoint x="231" y="154"/>    
+    <bendpoint x="232" y="542"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <realization id="16">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

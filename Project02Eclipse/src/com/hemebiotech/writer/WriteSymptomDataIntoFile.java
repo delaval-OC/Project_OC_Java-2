@@ -16,7 +16,7 @@ import java.util.Map;
  * @author delaval
  * @version V0.2
  */
-public class WriteSymptomCounterDataIntoFile implements ISymptomWriter {
+public class WriteSymptomDataIntoFile implements ISymptomWriter {
 
 	private String filePath;
 
@@ -25,7 +25,7 @@ public class WriteSymptomCounterDataIntoFile implements ISymptomWriter {
 	 * 
 	 * @param filePath a full path of the file to generate
 	 */
-	public WriteSymptomCounterDataIntoFile(String filePath) {
+	public WriteSymptomDataIntoFile(String filePath) {
 		this.filePath = filePath;
 	}
 
@@ -69,8 +69,8 @@ public class WriteSymptomCounterDataIntoFile implements ISymptomWriter {
 						e.printStackTrace();
 					}
 			}
-
-			System.out.println("creation of new file " + filePath + " with counts of symptoms is done !");
+			System.out.println("***********************************************");
+			System.out.println("Creation of new file " + filePath + " with counts of symptoms is done !");
 		}
 	}
 }

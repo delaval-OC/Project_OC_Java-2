@@ -9,6 +9,8 @@ import java.util.List;
  * 
  * The implementation does not need to order the list
  * 
+ * @author delaval
+ * @version v0.2
  */
 public interface ISymptomReader {
 	/**

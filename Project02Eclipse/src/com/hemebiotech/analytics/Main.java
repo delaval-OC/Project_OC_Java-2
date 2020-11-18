@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
 import com.hemebiotech.reader.ReadSymptomDataFromFile;
-import com.hemebiotech.writer.WriteSymptomCounterDataIntoFile;
+import com.hemebiotech.writer.WriteSymptomDataIntoFile;
 
 /**
  * The principal main class to run the application
@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		AnalyticsCounter counterSymptoms = new AnalyticsCounter(new ReadSymptomDataFromFile("symptoms.txt"),
-				new WriteSymptomCounterDataIntoFile("result3.out"));
+				new WriteSymptomDataIntoFile("result3.out"));
 
 		counterSymptoms.getListSymptoms();
 		counterSymptoms.setHashMapCounterSymptoms();
