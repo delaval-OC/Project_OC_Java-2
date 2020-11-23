@@ -56,12 +56,10 @@ public class SortWithoutDuplicatesCountSymptoms implements ISymptomTreatment {
 				i = listSymptoms.lastIndexOf(symptom);
 
 			}
-
+			System.out.println("**********************************************************");
+			System.out.println("HashMap sorted and terminated!");
+			System.out.println(hashMapCounterSymptom);
 		}
-		System.out.println("**********************************************************");
-		System.out.println("HashMap sorted and terminated!");
-		System.out.println(hashMapCounterSymptom);
-
 		return hashMapCounterSymptom;
 	}
 }
