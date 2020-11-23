@@ -41,23 +41,36 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		ArrayList<String> result = new ArrayList<String>();
 
 		if (filepath != null) {
+
+			BufferedReader reader = null;
+			String line;
+
 			try {
-				BufferedReader reader = new BufferedReader(new FileReader(filepath));
-				String line = reader.readLine();
+				reader = new BufferedReader(new FileReader(filepath));
+				line = reader.readLine();
 
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
+
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				if (reader != null) {
+					try {
+						reader.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 			}
+			System.out.println("File " + filepath + " correctly read !");
+			System.out.println("***************************************************");
+			System.out.println("list of symptoms read :");
+			System.out.println(result);
 		}
-		System.out.println("File " + filepath + " correctly read !");
-		System.out.println("***************************************************");
-		System.out.println("list of symptoms read :");
-		System.out.println(result);
+
 		return result;
 	}
 
