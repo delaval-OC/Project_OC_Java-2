@@ -20,5 +20,5 @@ public interface ISymptomTreatment {
 	 * @return {@link LinkedHashMap} LinkedHAshMap with as Key a String and as Value
 	 *         a Integer
 	 */
-	LinkedHashMap<String, Integer> TreatmentSymptoms(List<String> list);
+	LinkedHashMap<String, Integer> treatmentSymptoms(List<String> list);
 }

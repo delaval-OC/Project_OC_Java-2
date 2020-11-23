@@ -35,7 +35,7 @@ public class SortWithoutDuplicatesCountSymptoms implements ISymptomTreatment {
 	 *         as Value a Integer the number of occurrences of this string in list
 	 */
 	@Override
-	public LinkedHashMap<String, Integer> TreatmentSymptoms(List<String> listSymptoms) {
+	public LinkedHashMap<String, Integer> treatmentSymptoms(List<String> listSymptoms) {
 
 		if (!listSymptoms.isEmpty()) {
 

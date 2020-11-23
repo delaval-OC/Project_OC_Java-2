@@ -104,7 +104,7 @@ public class AnalyticsCounter {
 
 		this.hashMapCounterSymptom = new LinkedHashMap<String, Integer>();
 
-		this.hashMapCounterSymptom = this.symptomTreatment.TreatmentSymptoms(listSymptoms);
+		this.hashMapCounterSymptom = this.symptomTreatment.treatmentSymptoms(listSymptoms);
 
 	}
 }
