@@ -11,14 +11,14 @@ import com.hemebiotech.writer.WriteSymptomDataIntoFile;
  */
 public class Main {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		AnalyticsCounter counterSymptoms = new AnalyticsCounter(new ReadSymptomDataFromFile("symptoms.txt"),
-				new WriteSymptomDataIntoFile("result3.out"));
+    AnalyticsCounter counterSymptoms = new AnalyticsCounter(
+        new ReadSymptomDataFromFile("symptoms.txt"), new WriteSymptomDataIntoFile("result.out"));
 
-		counterSymptoms.getListSymptoms();
-		counterSymptoms.setHashMapCounterSymptoms();
-		counterSymptoms.setFileResult();
-	}
+    counterSymptoms.getListSymptoms();
+    counterSymptoms.setHashMapCounterSymptoms();
+    counterSymptoms.setFileResult();
+  }
 
 }
